@@ -78,7 +78,7 @@ async function getProfileWithAvatar(authorId, avatarClient, options = {}) {
     const avatar = await withRetry(
       () =>
         withTimeout(
-          signal => avatarClient.getAvatar(authorId, signal),
+          signal => avatarClient.getAvatar(authorId, { signal }),
           timeoutMs
         ),
       { maxAttempts, baseDelayMs }
